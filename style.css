@@ -9,8 +9,16 @@
 body {
     font-family: 'Poppins', -apple-system, sans-serif;
     background-color: #06192a;
+}
+
+.reveal {
+    background-color: #06192a;
+}
+
+.textured {
     background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-    background-attachment: fixed;
+    background-repeat: repeat !important;
+    background-size: auto !important;
 }
 
 .reveal,
