@@ -7,19 +7,20 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Poppins', -apple-system, sans-serif;
     background-color: #06192a;
     background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
     background-attachment: fixed;
 }
 
+.reveal,
 .reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-transform: none;
     font-weight: 700;
     letter-spacing: -1px;
@@ -55,10 +56,25 @@ body {
 }
 
 .glow-text {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    background: -webkit-linear-gradient(45deg, #60a5fa, #818cf8);
+    text-shadow: 0 0 20px rgba(0, 232, 0, 0.5);
+}
+
+.kinetic-gradient {
+    background: linear-gradient(90deg, #ffffff 0%, #cccccc 50%, #00e800 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: flowGradient 4s linear infinite;
+}
+
+@keyframes flowGradient {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .subtitle {
