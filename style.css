@@ -1,13 +1,16 @@
 /* Custom styles for BNI Presentation */
 :root {
-    --primary-blue: #3b82f6;
-    --primary-indigo: #4f46e5;
-    --accent-green: #10b981;
+    --primary-blue: #00e800;
+    --primary-indigo: #00bf00;
+    --accent-green: #00e800;
     --text-gray: #94a3b8;
 }
 
 body {
     font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #06192a;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-attachment: fixed;
 }
 
 .reveal h1,
