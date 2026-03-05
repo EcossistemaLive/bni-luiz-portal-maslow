@@ -16,6 +16,71 @@
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilos adicionais para novos slides */
+        .mandala-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .mandala-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 232, 0, 0.3);
+            border-radius: 10px;
+            padding: 18px 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .mandala-item i {
+            font-size: 1.8rem;
+            color: #00e800;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .mandala-item h4 {
+            font-size: 0.95rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .mandala-item:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 232, 0, 0.08);
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .tool-badge {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .text-sm {
+            font-size: 0.85em;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,86 +89,188 @@
 
             <!-- Slide 1: Capa -->
             <section class="slide-cover textured">
-                <h1 class="title-primary glow-text kinetic-gradient">Liderança Estratégica</h1>
-                <h3 class="subtitle">E a mudança de comportamento corporativa</h3>
-                <p class="presenter-name mt-5">Luiz Portal <br> <span class="text-blue">Consultoria de Negócios</span>
-                </p>
+                <h1 class="title-primary glow-text kinetic-gradient">Mentoria de Liderança</h1>
+                <h3 class="subtitle">Ecossistema Live — Consultoria de Negócios</h3>
+                <p class="presenter-name mt-5">Luiz Portal</p>
             </section>
 
-            <!-- Slide 2: O Propósito -->
+            <!-- Slide 2: O chefe morreu -->
             <section class="textured">
-                <h2 class="section-title"><i class="fas fa-bullseye text-blue"></i> O Nosso Objetivo</h2>
+                <h2 class="section-title kinetic-gradient glow-text">"O chefe morreu."</h2>
                 <div class="content-box">
                     <p class="highlight-text">
-                        Transformar negócios por meio do <strong>desenvolvimento humano</strong> e da <strong>visão
-                            estratégica</strong>.
+                        Chegamos ao fim da era do chefe.
                     </p>
+                    <p class="fragment fade-up italic text-gray mt-5 border-l-4">
+                        O mundo mudou. A liderança tradicional já não sustenta resultados. É hora de formar líderes
+                        <strong>antifrágeis</strong> — que prosperam nas adversidades.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Slide 3: Ecossistema Live — Mandala -->
+            <section class="textured">
+                <h2 class="section-title"><i class="fas fa-atom text-blue"></i> O Ecossistema Live</h2>
+                <div class="mandala-grid">
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Consultoria Estratégica</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-chess"></i>
+                        <h4>Sucessão Empresarial</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-users-cog"></i>
+                        <h4>Formação de Líderes</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-compass"></i>
+                        <h4>Mentoria de Líderes</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-crown"></i>
+                        <h4>Formação do CEO</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-book-reader"></i>
+                        <h4>Cursos Estratégicos</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>Formações Digitais</h4>
+                    </div>
+                    <div class="mandala-item fragment zoom-in">
+                        <i class="fas fa-microphone-alt"></i>
+                        <h4>Eventos e Palestras</h4>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: O que é Mentoria? -->
+            <section class="textured">
+                <h2 class="section-title">Mentoria, Consultoria ou Assessoria?</h2>
+                <div class="cards-container">
+                    <div class="glass-card fragment fade-right">
+                        <i class="fas fa-search card-icon"></i>
+                        <h4>Consultoria</h4>
+                        <p>Diagnóstico e plano de ação. Foco no processo e no negócio.</p>
+                    </div>
+                    <div class="glass-card fragment fade-up">
+                        <i class="fas fa-hands-helping card-icon"></i>
+                        <h4>Assessoria</h4>
+                        <p>Execução direta. O especialista opera junto ao cliente.</p>
+                    </div>
+                    <div class="glass-card fragment fade-left" style="border-color: rgba(0,232,0,0.5);">
+                        <i class="fas fa-brain card-icon"></i>
+                        <h4 class="text-green">Mentoria</h4>
+                        <p>Foco no <strong>indivíduo</strong>. Transferência de experiência, expansão de visão e
+                            amadurecimento do líder.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: A Trilha das 10 Sessões -->
+            <section class="textured">
+                <h2 class="section-title"><i class="fas fa-route text-blue"></i> A Trilha: 10 Sessões</h2>
+                <div class="content-box text-left">
                     <ul class="clean-list">
-                        <li class="fragment fade-up"><i class="fas fa-check text-green"></i> Maximizar Performance</li>
-                        <li class="fragment fade-up"><i class="fas fa-check text-green"></i> Alinhar Cultura e
-                            Resultados</li>
-                        <li class="fragment fade-up"><i class="fas fa-check text-green"></i> Preparar Líderes para o
-                            Futuro</li>
+                        <li class="fragment fade-up">
+                            <i class="fas fa-user-check text-green"></i>
+                            <span><strong>Autoconhecimento:</strong> Temperamento, perfil comportamental e maturidade
+                                (12 Camadas da Personalidade).</span>
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fas fa-users text-green"></i>
+                            <span><strong>Leitura de pessoas:</strong> Capacidade de identificar e lidar com perfis à
+                                sua volta.</span>
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fas fa-bullseye text-green"></i>
+                            <span><strong>Propósito e Alinhamento:</strong> Convergência dos objetivos pessoais com os
+                                da empresa/corporação.</span>
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fas fa-people-arrows text-green"></i>
+                            <span><strong>Gestão de pessoas:</strong> Estrutura e ferramentas para lidar com pessoas no
+                                dia a dia.</span>
+                        </li>
                     </ul>
                 </div>
             </section>
 
-            <!-- Slide 3: O Percurso -->
+            <!-- Slide 6: Ferramentas -->
             <section class="textured">
-                <h2 class="section-title"><i class="fas fa-route text-blue"></i> O Percurso da Mentoria</h2>
-                <div class="cards-container">
-                    <div class="glass-card fragment fade-right">
-                        <i class="fas fa-chess-knight card-icon"></i>
-                        <h4>Visão Estratégica</h4>
-                        <p>Clareza no direcionamento e tomada de decisão.</p>
+                <h2 class="section-title"><i class="fas fa-toolbox text-blue"></i> Ferramentas da Mentoria</h2>
+                <div class="tools-list">
+                    <div class="tool-badge fragment fade-up">DISC / Herrmann</div>
+                    <div class="tool-badge fragment fade-up">Eneagrama</div>
+                    <div class="tool-badge fragment fade-up">Método GROW</div>
+                    <div class="tool-badge fragment fade-up">Modelo SCARF</div>
+                    <div class="tool-badge fragment fade-up">OKRs</div>
+                    <div class="tool-badge fragment fade-up">Escuta Ativa</div>
+                    <div class="tool-badge fragment fade-up">Matriz de Eisenhower</div>
+                    <div class="tool-badge fragment fade-up">Feedback Estruturado</div>
+                    <div class="tool-badge fragment fade-up">5 Porquês</div>
+                    <div class="tool-badge fragment fade-up">Kaizen</div>
+                    <div class="tool-badge fragment fade-up">Pomodoro</div>
+                    <div class="tool-badge fragment fade-up">Necrológio</div>
+                </div>
+            </section>
+
+            <!-- Slide 7: O Destino — Líder Antifrágil -->
+            <section class="textured">
+                <h2 class="section-title">O Resultado: Líder <span class="kinetic-gradient glow-text">Antifrágil</span>
+                </h2>
+                <div class="content-box">
+                    <p class="highlight-text">
+                        Um líder formado, preparado para <strong>prosperar nas adversidades</strong>.
+                    </p>
+                    <p class="fragment fade-up italic text-gray mt-5 border-l-4">
+                        Com clareza de quem é, domínio das ferramentas de gestão de pessoas e alinhamento entre
+                        propósito pessoal e corporativo.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Slide 8: Público-Alvo -->
+            <section class="textured">
+                <h2 class="section-title"><i class="fas fa-crosshairs text-blue"></i> Para Quem É?</h2>
+                <div class="cards-container" style="flex-wrap: wrap;">
+                    <div class="glass-card fragment fade-up" style="min-width: 240px;">
+                        <i class="fas fa-building card-icon"></i>
+                        <h4>Empresários em Maturidade</h4>
+                        <p>Querem crescer a empresa, mas sentem que precisam crescer primeiro — ou a empresa já não
+                            reflete quem eles são.</p>
                     </div>
-                    <div class="glass-card fragment fade-up">
-                        <i class="fas fa-brain card-icon"></i>
-                        <h4>Mudança de Comportamento</h4>
-                        <p>Quebra de paradigmas e adoção de novos hábitos.</p>
+                    <div class="glass-card fragment fade-up" style="min-width: 240px;">
+                        <i class="fas fa-briefcase card-icon"></i>
+                        <h4>Executivos em Transição</h4>
+                        <p>Nível tático alçados ao estratégico. Novos diretores e C-levels que precisam de visão
+                            sistêmica.</p>
                     </div>
-                    <div class="glass-card fragment fade-left">
-                        <i class="fas fa-users card-icon"></i>
-                        <h4>Liderança Inspiradora</h4>
-                        <p>Engajamento e desenvolvimento de times fortes.</p>
+                    <div class="glass-card fragment fade-up" style="min-width: 240px;">
+                        <i class="fas fa-chart-line card-icon"></i>
+                        <h4>C-Levels Experientes</h4>
+                        <p>Já faturam alto, mas perceberam que são chefes — e querem dar o próximo passo como líderes de
+                            verdade.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 4: O Desafio -->
+            <!-- Slide 9: Encerramento — QR Code + Frase -->
             <section class="textured">
-                <h2 class="section-title">O Desafio Prático</h2>
-                <h3 class="highlight-text">Em que estágio está a sua equipe?</h3>
-                <p class="text-xl">
-                    Utilizando a teoria da <span class="text-blue">Pirâmide de Maslow</span> adaptada para o ambiente
-                    corporativo, podemos diagnosticar as necessidades reais do seu time.
-                </p>
-                <p class="fragment fade-up italic text-gray mt-5 border-l-4">
-                    "Você não pode construir o topo do desempenho sem garantir as bases de engajamento."
-                </p>
-            </section>
-
-            <!-- Slide 5: Interativo (QR Code) -->
-            <section class="textured">
-                <h2>Faça o Diagnóstico <span class="text-blue">Agora!</span></h2>
-                <p>Aponte a câmera e descubra o nível da sua equipe em menos de 2 minutos.</p>
+                <h2 class="glow-text">Avalie a sua <span class="text-blue">Liderança</span></h2>
+                <p>Como você e sua empresa estão em nível de liderança?</p>
+                <p class="text-sm text-gray">Diagnóstico <strong class="text-green">Liderança by Maslow</strong></p>
                 <div class="qr-container mt-4">
-                    <!-- Placeholder QR Code - Generate a real one pointing to the actual deployed app URL -->
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://ecossistemalive.github.io/bni-luiz-portal-maslow/diagnostico"
-                        alt="QR Code Diagnóstico" class="qr-image">
+                        alt="QR Code Liderança by Maslow" class="qr-image">
                 </div>
-                <p class="text-sm text-gray mt-2">100% Gratuito</p>
-            </section>
-
-            <!-- Slide 6: Encerramento -->
-            <section class="textured">
-                <h2 class="glow-text">Vamos Crescer Juntos?</h2>
-                <p class="mt-4">"A verdadeira liderança não é sobre estar no comando, é sobre cuidar daqueles que estão
-                    sob o seu comando."</p>
-                <div class="contact-box mt-5">
-                    <p><i class="fab fa-whatsapp text-green"></i> Fale comigo para uma consultoria.</p>
-                    <h3 class="text-blue">Luiz Portal</h3>
-                </div>
+                <p class="fragment fade-up italic mt-5" style="font-size: 1.3rem; line-height: 1.6;">
+                    "Que a tua vida não seja uma vida estéril. — Sê útil. — Deixa rastro."
+                    <br><span class="text-gray text-sm">São Josemaria Escrivá, <em>Caminho</em>, 1</span>
+                </p>
             </section>
 
         </div>
@@ -113,7 +280,7 @@
     <script>
         Reveal.initialize({
             hash: true,
-            transition: 'fade', // fade, slide, convex, concave, zoom
+            transition: 'fade',
             backgroundTransition: 'fade',
             transitionSpeed: 'slow',
             autoAnimateEasing: 'ease-out',
