@@ -18,41 +18,130 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Estilos adicionais para novos slides */
-        .mandala-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-top: 1.5rem;
+        /* === MANDALA PÉTALA (flor) === */
+        .mandala-wrapper {
+            position: relative;
+            width: 520px;
+            height: 520px;
+            margin: 0 auto;
         }
 
-        .mandala-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 232, 0, 0.3);
-            border-radius: 10px;
-            padding: 18px 10px;
-            text-align: center;
-            transition: 0.3s;
+        .mandala-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(0, 232, 0, 0.25), transparent 70%);
+            border: 2px solid rgba(0, 232, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
         }
 
-        .mandala-item i {
-            font-size: 1.8rem;
+        .mandala-center i {
+            font-size: 2rem;
             color: #00e800;
-            display: block;
-            margin-bottom: 10px;
         }
 
-        .mandala-item h4 {
-            font-size: 0.95rem;
+        .petal {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 232, 0, 0.35);
+            border-radius: 50% 50% 50% 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: 0.4s;
+            transform-origin: center center;
+        }
+
+        .petal i {
+            font-size: 1.5rem;
+            color: #00e800;
+            margin-bottom: 6px;
+        }
+
+        .petal h4 {
+            font-size: 0.75rem;
             margin: 0;
             font-weight: 500;
+            line-height: 1.2;
         }
 
-        .mandala-item:hover {
-            transform: translateY(-4px);
-            background: rgba(0, 232, 0, 0.08);
+        .petal:hover {
+            background: rgba(0, 232, 0, 0.12);
+            border-color: rgba(0, 232, 0, 0.7);
+            transform: scale(1.08);
         }
 
+        /* Posição das 8 pétalas ao redor do centro */
+        .petal:nth-child(2) {
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 50% 0;
+        }
+
+        .petal:nth-child(3) {
+            top: 30px;
+            right: -10px;
+            border-radius: 50% 0 50% 50%;
+        }
+
+        .petal:nth-child(4) {
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            border-radius: 0 50% 50% 50%;
+        }
+
+        .petal:nth-child(5) {
+            bottom: 30px;
+            right: -10px;
+            border-radius: 50% 50% 0 50%;
+        }
+
+        .petal:nth-child(6) {
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 0 50% 50%;
+        }
+
+        .petal:nth-child(7) {
+            bottom: 30px;
+            left: -10px;
+            border-radius: 50% 50% 50% 0;
+        }
+
+        .petal:nth-child(8) {
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+            border-radius: 50% 50% 0 50%;
+        }
+
+        .petal:nth-child(9) {
+            top: 30px;
+            left: -10px;
+            border-radius: 0 50% 50% 50%;
+        }
+
+        /* === Content-box fix: fundo sólido sem textura === */
+        .content-box {
+            background: rgba(6, 25, 42, 0.92) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+
+        /* === Ferramentas === */
         .tools-list {
             display: flex;
             flex-wrap: wrap;
@@ -69,6 +158,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
+        /* === Utilitários === */
         .text-sm {
             font-size: 0.85em;
         }
@@ -108,39 +198,42 @@
                 </div>
             </section>
 
-            <!-- Slide 3: Ecossistema Live — Mandala -->
+            <!-- Slide 3: Ecossistema Live — Mandala Pétala -->
             <section class="textured">
                 <h2 class="section-title"><i class="fas fa-atom text-blue"></i> O Ecossistema Live</h2>
-                <div class="mandala-grid">
-                    <div class="mandala-item fragment zoom-in">
+                <div class="mandala-wrapper">
+                    <div class="mandala-center">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-chart-line"></i>
                         <h4>Consultoria Estratégica</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-chess"></i>
                         <h4>Sucessão Empresarial</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-users-cog"></i>
                         <h4>Formação de Líderes</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-compass"></i>
                         <h4>Mentoria de Líderes</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-crown"></i>
                         <h4>Formação do CEO</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-book-reader"></i>
                         <h4>Cursos Estratégicos</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-laptop-code"></i>
                         <h4>Formações Digitais</h4>
                     </div>
-                    <div class="mandala-item fragment zoom-in">
+                    <div class="petal fragment zoom-in">
                         <i class="fas fa-microphone-alt"></i>
                         <h4>Eventos e Palestras</h4>
                     </div>
@@ -260,17 +353,21 @@
 
             <!-- Slide 9: Encerramento — QR Code + Frase -->
             <section class="textured">
-                <h2 class="glow-text">Avalie a sua <span class="text-blue">Liderança</span></h2>
-                <p>Como você e sua empresa estão em nível de liderança?</p>
-                <p class="text-sm text-gray">Diagnóstico <strong class="text-green">Liderança by Maslow</strong></p>
-                <div class="qr-container mt-4">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://ecossistemalive.github.io/bni-luiz-portal-maslow/diagnostico"
-                        alt="QR Code Liderança by Maslow" class="qr-image">
-                </div>
-                <p class="fragment fade-up italic mt-5" style="font-size: 1.3rem; line-height: 1.6;">
+                <p class="italic" style="font-size: 1.4rem; line-height: 1.5; margin-bottom: 0.3rem;">
                     "Que a tua vida não seja uma vida estéril. — Sê útil. — Deixa rastro."
-                    <br><span class="text-gray text-sm">São Josemaria Escrivá, <em>Caminho</em>, 1</span>
                 </p>
+                <p class="text-gray text-sm" style="margin-bottom: 1.2rem;">São Josemaria Escrivá, <em>Caminho</em>, 1
+                </p>
+                <h3 class="glow-text" style="margin-bottom: 0.3rem;">Avalie a sua <span
+                        class="text-blue">Liderança</span></h3>
+                <p style="font-size: 1rem; margin-bottom: 0.2rem;">Como você e sua empresa estão em nível de liderança?
+                </p>
+                <p class="text-sm text-gray" style="margin-bottom: 0.8rem;">Diagnóstico <strong
+                        class="text-green">Liderança by Maslow</strong></p>
+                <div class="qr-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://ecossistemalive.github.io/bni-luiz-portal-maslow/diagnostico"
+                        alt="QR Code Liderança by Maslow" class="qr-image" style="max-width: 220px;">
+                </div>
             </section>
 
         </div>
