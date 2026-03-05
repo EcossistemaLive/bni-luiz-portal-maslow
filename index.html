@@ -398,8 +398,65 @@
         </div>
     </div>
 
+    <!-- Timer overlay -->
+    <div id="timer-badge" style="
+        position: fixed; bottom: 14px; left: 14px; z-index: 999;
+        font-family: 'Inter', monospace; font-size: 0.7rem;
+        color: rgba(255,255,255,0.3); letter-spacing: 1px;
+        pointer-events: none; transition: color 0.5s;
+    ">
+        <span id="tb-slide">1/10</span> ·
+        <span id="tb-elapsed">0:00</span> /
+        <span id="tb-target">0:30</span>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script>
+        // Tempos-alvo acumulados (em segundos) para cada slide
+        // Distribuição para 8 min (480s):
+        // S1=0:30  S2=1:15  S3=2:15  S4=3:15  S5=4:15  S6=5:00  S7=5:45  S8=6:45  S9=7:30  S10=8:00
+        const slideTimes = [30, 75, 135, 195, 255, 300, 345, 405, 450, 480];
+        const totalSlides = slideTimes.length;
+        let timerStarted = false;
+        let startTime = 0;
+        let elapsedInterval = null;
+
+        function fmtTime(s) {
+            const m = Math.floor(s / 60);
+            const sec = Math.floor(s % 60);
+            return m + ':' + String(sec).padStart(2, '0');
+        }
+
+        function updateBadge() {
+            const idx = Reveal.getIndices().h;
+            const badge = document.getElementById('timer-badge');
+            const tbSlide = document.getElementById('tb-slide');
+            const tbTarget = document.getElementById('tb-target');
+
+            tbSlide.textContent = (idx + 1) + '/' + totalSlides;
+            tbTarget.textContent = fmtTime(slideTimes[idx]);
+
+            if (timerStarted) {
+                const elapsed = (Date.now() - startTime) / 1000;
+                const target = slideTimes[idx];
+                // Fica vermelho se passou do tempo daquele slide
+                if (elapsed > target) {
+                    badge.style.color = 'rgba(255,80,80,0.5)';
+                } else if (elapsed > target - 15) {
+                    badge.style.color = 'rgba(255,200,50,0.5)';
+                } else {
+                    badge.style.color = 'rgba(255,255,255,0.3)';
+                }
+            }
+        }
+
+        function tickTimer() {
+            if (!timerStarted) return;
+            const elapsed = (Date.now() - startTime) / 1000;
+            document.getElementById('tb-elapsed').textContent = fmtTime(elapsed);
+            updateBadge();
+        }
+
         Reveal.initialize({
             hash: true,
             transition: 'fade',
@@ -409,7 +466,18 @@
             autoAnimateDuration: 1.0,
             autoAnimateUnmatched: false
         });
+
+        Reveal.on('slidechanged', function (event) {
+            // Inicia timer quando sai do slide 1
+            if (!timerStarted && event.indexh >= 1) {
+                timerStarted = true;
+                startTime = Date.now();
+                elapsedInterval = setInterval(tickTimer, 1000);
+            }
+            updateBadge();
+        });
+
+        updateBadge();
     </script>
-</body>
 
 </html>
