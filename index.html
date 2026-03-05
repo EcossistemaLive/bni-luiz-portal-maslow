@@ -18,121 +18,200 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* === MANDALA PÉTALA (flor) === */
-        .mandala-wrapper {
+        /* === MANDALA CIRCULAR PREMIUM === */
+        .mandala-container {
             position: relative;
-            width: 520px;
-            height: 520px;
-            margin: 0 auto;
+            width: 580px;
+            height: 580px;
+            margin: -10px auto 0;
         }
 
-        .mandala-center {
+        /* Anel orbital */
+        .mandala-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 460px;
+            height: 460px;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(0, 232, 0, 0.12);
+            border-radius: 50%;
+        }
+
+        /* Centro pulsante */
+        .mandala-core {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 110px;
-            height: 110px;
-            background: radial-gradient(circle, rgba(0, 232, 0, 0.25), transparent 70%);
-            border: 2px solid rgba(0, 232, 0, 0.6);
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 232, 0, 0.3) 0%, rgba(0, 232, 0, 0.05) 60%, transparent 100%);
+            border: 2px solid rgba(0, 232, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2;
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(0, 232, 0, 0.15), inset 0 0 20px rgba(0, 232, 0, 0.1);
+            animation: corePulse 3s ease-in-out infinite;
         }
 
-        .mandala-center i {
-            font-size: 2rem;
+        @keyframes corePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 40px rgba(0, 232, 0, 0.15), inset 0 0 20px rgba(0, 232, 0, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 60px rgba(0, 232, 0, 0.3), inset 0 0 30px rgba(0, 232, 0, 0.15);
+            }
+        }
+
+        .mandala-core span {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: #00e800;
         }
 
-        .petal {
+        /* Nó (pétala) */
+        .m-node {
             position: absolute;
-            width: 130px;
-            height: 130px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 232, 0, 0.35);
-            border-radius: 50% 50% 50% 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(10, 36, 61, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 232, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            transition: 0.4s;
-            transform-origin: center center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .petal i {
-            font-size: 1.5rem;
+        .m-node i {
+            font-size: 1.4rem;
             color: #00e800;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 0 6px rgba(0, 232, 0, 0.4));
         }
 
-        .petal h4 {
-            font-size: 0.75rem;
+        .m-node h4 {
+            font-size: 0.65rem;
             margin: 0;
-            font-weight: 500;
-            line-height: 1.2;
+            font-weight: 600;
+            line-height: 1.25;
+            color: #e2e8f0;
+            padding: 0 6px;
         }
 
-        .petal:hover {
-            background: rgba(0, 232, 0, 0.12);
-            border-color: rgba(0, 232, 0, 0.7);
-            transform: scale(1.08);
+        .m-node:hover {
+            border-color: rgba(0, 232, 0, 0.8);
+            background: rgba(0, 232, 0, 0.1);
+            transform: scale(1.12);
+            box-shadow: 0 0 30px rgba(0, 232, 0, 0.3);
         }
 
-        /* Posição das 8 pétalas ao redor do centro */
-        .petal:nth-child(2) {
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50% 50% 50% 0;
-        }
-
-        .petal:nth-child(3) {
-            top: 30px;
-            right: -10px;
-            border-radius: 50% 0 50% 50%;
-        }
-
-        .petal:nth-child(4) {
+        /* Linha conectora sutil */
+        .m-line {
+            position: absolute;
             top: 50%;
-            right: -30px;
-            transform: translateY(-50%);
-            border-radius: 0 50% 50% 50%;
-        }
-
-        .petal:nth-child(5) {
-            bottom: 30px;
-            right: -10px;
-            border-radius: 50% 50% 0 50%;
-        }
-
-        .petal:nth-child(6) {
-            bottom: -10px;
             left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50% 0 50% 50%;
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 232, 0, 0.25), rgba(0, 232, 0, 0.03));
+            transform-origin: 0 0;
+            z-index: 1;
         }
 
-        .petal:nth-child(7) {
-            bottom: 30px;
-            left: -10px;
-            border-radius: 50% 50% 50% 0;
+        /* Posições (8 nós a 45° de distância, raio = 210px do centro) */
+        /* Calculado: x = 290 + 210*cos(angle) - 60, y = 290 + 210*sin(angle) - 60  */
+        .m-node:nth-of-type(1) {
+            top: 20px;
+            left: 230px;
         }
 
-        .petal:nth-child(8) {
-            top: 50%;
-            left: -30px;
-            transform: translateY(-50%);
-            border-radius: 50% 50% 0 50%;
+        /* 0°   = topo */
+        .m-node:nth-of-type(2) {
+            top: 64px;
+            left: 398px;
         }
 
-        .petal:nth-child(9) {
-            top: 30px;
-            left: -10px;
-            border-radius: 0 50% 50% 50%;
+        /* 45° */
+        .m-node:nth-of-type(3) {
+            top: 230px;
+            left: 440px;
+        }
+
+        /* 90°  = direita */
+        .m-node:nth-of-type(4) {
+            top: 398px;
+            left: 398px;
+        }
+
+        /* 135° */
+        .m-node:nth-of-type(5) {
+            top: 440px;
+            left: 230px;
+        }
+
+        /* 180° = baixo */
+        .m-node:nth-of-type(6) {
+            top: 398px;
+            left: 62px;
+        }
+
+        /* 225° */
+        .m-node:nth-of-type(7) {
+            top: 230px;
+            left: 20px;
+        }
+
+        /* 270° = esquerda */
+        .m-node:nth-of-type(8) {
+            top: 64px;
+            left: 62px;
+        }
+
+        /* 315° */
+        /* Linhas conectoras (ângulos) */
+        .m-line:nth-of-type(1) {
+            transform: rotate(-90deg);
+        }
+
+        .m-line:nth-of-type(2) {
+            transform: rotate(-45deg);
+        }
+
+        .m-line:nth-of-type(3) {
+            transform: rotate(0deg);
+        }
+
+        .m-line:nth-of-type(4) {
+            transform: rotate(45deg);
+        }
+
+        .m-line:nth-of-type(5) {
+            transform: rotate(90deg);
+        }
+
+        .m-line:nth-of-type(6) {
+            transform: rotate(135deg);
+        }
+
+        .m-line:nth-of-type(7) {
+            transform: rotate(180deg);
+        }
+
+        .m-line:nth-of-type(8) {
+            transform: rotate(225deg);
         }
 
         /* === Content-box fix: fundo sólido sem textura === */
@@ -198,42 +277,55 @@
                 </div>
             </section>
 
-            <!-- Slide 3: Ecossistema Live — Mandala Pétala -->
+            <!-- Slide 3: Ecossistema Live — Mandala Circular -->
             <section class="textured">
                 <h2 class="section-title"><i class="fas fa-atom text-blue"></i> O Ecossistema Live</h2>
-                <div class="mandala-wrapper">
-                    <div class="mandala-center">
-                        <i class="fas fa-seedling"></i>
+                <div class="mandala-container">
+                    <!-- Anel orbital -->
+                    <div class="mandala-orbit"></div>
+                    <!-- Linhas conectoras -->
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <div class="m-line"></div>
+                    <!-- Centro -->
+                    <div class="mandala-core">
+                        <span>Live</span>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <!-- 8 Nós -->
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-chart-line"></i>
                         <h4>Consultoria Estratégica</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-chess"></i>
                         <h4>Sucessão Empresarial</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-users-cog"></i>
                         <h4>Formação de Líderes</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-compass"></i>
                         <h4>Mentoria de Líderes</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-crown"></i>
                         <h4>Formação do CEO</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-book-reader"></i>
                         <h4>Cursos Estratégicos</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-laptop-code"></i>
                         <h4>Formações Digitais</h4>
                     </div>
-                    <div class="petal fragment zoom-in">
+                    <div class="m-node fragment zoom-in">
                         <i class="fas fa-microphone-alt"></i>
                         <h4>Eventos e Palestras</h4>
                     </div>
