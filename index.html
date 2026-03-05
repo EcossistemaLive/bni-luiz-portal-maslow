@@ -468,15 +468,13 @@
         });
 
         Reveal.on('slidechanged', function (event) {
-            // Inicia timer quando sai do slide 1
-            if (!timerStarted && event.indexh >= 1) {
-                timerStarted = true;
-                startTime = Date.now();
-                elapsedInterval = setInterval(tickTimer, 1000);
-            }
             updateBadge();
         });
 
+        // Inicia timer imediatamente (slide 1 conta 30s)
+        timerStarted = true;
+        startTime = Date.now();
+        elapsedInterval = setInterval(tickTimer, 1000);
         updateBadge();
     </script>
 
