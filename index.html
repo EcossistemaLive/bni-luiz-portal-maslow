@@ -131,88 +131,6 @@
             z-index: 1;
         }
 
-        /* Posições (8 nós a 45° de distância, raio = 210px do centro) */
-        /* Calculado: x = 290 + 210*cos(angle) - 60, y = 290 + 210*sin(angle) - 60  */
-        .m-node:nth-of-type(1) {
-            top: 20px;
-            left: 230px;
-        }
-
-        /* 0°   = topo */
-        .m-node:nth-of-type(2) {
-            top: 64px;
-            left: 398px;
-        }
-
-        /* 45° */
-        .m-node:nth-of-type(3) {
-            top: 230px;
-            left: 440px;
-        }
-
-        /* 90°  = direita */
-        .m-node:nth-of-type(4) {
-            top: 398px;
-            left: 398px;
-        }
-
-        /* 135° */
-        .m-node:nth-of-type(5) {
-            top: 440px;
-            left: 230px;
-        }
-
-        /* 180° = baixo */
-        .m-node:nth-of-type(6) {
-            top: 398px;
-            left: 62px;
-        }
-
-        /* 225° */
-        .m-node:nth-of-type(7) {
-            top: 230px;
-            left: 20px;
-        }
-
-        /* 270° = esquerda */
-        .m-node:nth-of-type(8) {
-            top: 64px;
-            left: 62px;
-        }
-
-        /* 315° */
-        /* Linhas conectoras (ângulos) */
-        .m-line:nth-of-type(1) {
-            transform: rotate(-90deg);
-        }
-
-        .m-line:nth-of-type(2) {
-            transform: rotate(-45deg);
-        }
-
-        .m-line:nth-of-type(3) {
-            transform: rotate(0deg);
-        }
-
-        .m-line:nth-of-type(4) {
-            transform: rotate(45deg);
-        }
-
-        .m-line:nth-of-type(5) {
-            transform: rotate(90deg);
-        }
-
-        .m-line:nth-of-type(6) {
-            transform: rotate(135deg);
-        }
-
-        .m-line:nth-of-type(7) {
-            transform: rotate(180deg);
-        }
-
-        .m-line:nth-of-type(8) {
-            transform: rotate(225deg);
-        }
 
         /* === Content-box fix: fundo sólido sem textura === */
         .content-box {
@@ -283,49 +201,49 @@
                 <div class="mandala-container">
                     <!-- Anel orbital -->
                     <div class="mandala-orbit"></div>
-                    <!-- Linhas conectoras -->
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
-                    <div class="m-line"></div>
+                    <!-- Linhas conectoras (inline rotation) -->
+                    <div class="m-line" style="transform: rotate(-90deg);"></div>
+                    <div class="m-line" style="transform: rotate(-45deg);"></div>
+                    <div class="m-line" style="transform: rotate(0deg);"></div>
+                    <div class="m-line" style="transform: rotate(45deg);"></div>
+                    <div class="m-line" style="transform: rotate(90deg);"></div>
+                    <div class="m-line" style="transform: rotate(135deg);"></div>
+                    <div class="m-line" style="transform: rotate(180deg);"></div>
+                    <div class="m-line" style="transform: rotate(225deg);"></div>
                     <!-- Centro -->
                     <div class="mandala-core">
                         <span>Live</span>
                     </div>
-                    <!-- 8 Nós -->
-                    <div class="m-node fragment zoom-in">
+                    <!-- 8 Nós com posição inline -->
+                    <div class="m-node fragment zoom-in" style="top:20px; left:230px;">
                         <i class="fas fa-chart-line"></i>
                         <h4>Consultoria Estratégica</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:81px; left:378px;">
                         <i class="fas fa-chess"></i>
                         <h4>Sucessão Empresarial</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:230px; left:440px;">
                         <i class="fas fa-users-cog"></i>
                         <h4>Formação de Líderes</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:378px; left:378px;">
                         <i class="fas fa-compass"></i>
                         <h4>Mentoria de Líderes</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:440px; left:230px;">
                         <i class="fas fa-crown"></i>
                         <h4>Formação do CEO</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:378px; left:81px;">
                         <i class="fas fa-book-reader"></i>
                         <h4>Cursos Estratégicos</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:230px; left:20px;">
                         <i class="fas fa-laptop-code"></i>
                         <h4>Formações Digitais</h4>
                     </div>
-                    <div class="m-node fragment zoom-in">
+                    <div class="m-node fragment zoom-in" style="top:81px; left:81px;">
                         <i class="fas fa-microphone-alt"></i>
                         <h4>Eventos e Palestras</h4>
                     </div>
